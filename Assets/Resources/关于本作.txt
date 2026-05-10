@@ -1,0 +1,85 @@
+<size=52><b>首先感谢各位的支持</b></size=52>
+.
+	<b><color=#B5A642>感谢你游玩 什纳%Version%。</color></b>，感谢各位支持！
+.
+.	我的Bilibili：https://space.bilibili.com/438116463 (如果你有任何问题可以私信反馈哦)
+.	我的爱发电: https://afdian.com/a/MoHanHAN
+.	Gitee: https://gitee.com/MoHanBi/shina/tree/master (使用请遵守GPL-3开源协议)
+.	QQ群：647853725（欢迎过来玩）
+.
+<size=52><b>Q&A</b></size=52>
+.
+.	Q:我将怎么获得该视觉小说的最新版本
+.	A:无需赞助，本程序完全免费。
+.	Q:这本小说/视觉小说会不会坑？
+.	A:会咕但不会坑——至少我会以纯文本留下一个完整的故事。
+.
+.	Q:多久更新？
+.	A:不确定。
+.
+<size=52><b>引用</b></size=52>
+.
+.	制作引擎：Unity %Unity_Version% （许可证：个人版）
+.
+.	音乐 / 音效：
+.
+.		丨Airport Lounge - Kevin MacLeod (incompetech.com) - CCBY
+.
+.		丨Devonshire Waltz Allegretto - Kevin MacLeod (incompetech.com) - CCBY
+.
+.		丨Envision - Kevin MacLeod (incompetech.com) - CCBY
+.
+.		丨Half Mystery - Kevin MacLeod (incompetech.com) - CCBY
+.
+.		丨Cinematic Trailer - Hans Williamson - https://music.163.com/song?id=2059805512
+.
+.		丨morning music - Kevin MacLeod (incompetech.com) - CCBY
+.
+.		丨Organic Meditations Three - Kevin MacLeod (incompetech.com) - CCBY
+.
+.		丨Past Sadness - Kevin MacLeod (incompetech.com) - CCBY
+.
+.		丨Rains Will Fall - Kevin MacLeod (incompetech.com) - CCBY
+.
+.		丨SCP-x6x - Kevin MacLeod (incompetech.com) - CCBY
+.
+.		丨The Dragon Fell in Love with The Knight - 乌鸦Producer - https://music.163.com/#/artist/desc?id=13286337
+.
+.		丨Virtutes Instrumenti - Kevin MacLeod (incompetech.com) - CCBY
+.
+.		丨when it rains - Kevin MacLeod (incompetech.com) - CCBY
+.
+.		丨When The Wind Blows - Kevin MacLeod (incompetech.com) - CCBY
+.
+.		丨萍逢（Piano） - 乌鸦Producer - https://music.163.com/#/artist/desc?id=13286337
+.		
+.		丨可能包含其他未标注的音乐..
+.
+.		因个人开发资源有限，对于某些可能造成侵权的音乐资源，如您是以下音乐的版权所有者，认为本项目使用不当，请联系，确认版权后会立即调整。
+.
+.	音效：网络(版权所有于原作者，侵权请联系！)
+.
+.	背景：网上素材(部分经过人工处理)/个人绘制/AI生成，部分资源链接：
+.
+.		丨https://vimeo.com/359488329 (license Attribution 3.0 Unported (CC BY 3.0))
+.
+.	其他插画/背景：主界面CG（Wallpaper Derzett [不知道是不是原作者，但是侵权立即删除]）
+.
+.	UI：个人设计，素材来源于Unity自带，部分ICON来自网络
+.
+.	插件：TextMeshPro、Epplus
+.
+<size=52><b>说明</b></size=52>
+.
+.	本作包含了微血腥、暴力情节，请在游玩前斟酌考虑……
+.	游戏内的所有素材均可以二创和使用，但不容许商用、涉政、侮辱性质的二创内容等！
+.	本游戏所有非原创素材著作权均归属其原始创作者。
+.	原创内容、设定、部分未涉及AI的插图，版权仍然归属于漠寒MOHAN
+.
+.	Copyright©By MOHAN
+.
+<size=52><b>涉及AI的素材</b></size=52>
+.
+.	第二章：俯视城市、飞行器、太空站、太空花园
+.	第四章：电梯前及其子图片、废墟-1及其子图片
+.	立绘：虚空狼

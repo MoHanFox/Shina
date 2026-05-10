@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 84f0fcc4ed9b79c4a974c43c8f6567df
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - OPlusSans 3.0
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2125aa4cb1f240f4c9974b66ea38f2c3, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
