@@ -369,7 +369,7 @@ public class Audiobook : MonoBehaviour
     void 内容更新(string s人物, string s对话, string s语音, string s背景, string s背景音乐, string s立绘, string s头像, string s选项, string sQTE, string s指令, bool recovery = false)
     {
         Resources.UnloadUnusedAssets();
-        if (s对话 != "")
+        if (s对话 != "" && s对话 != 文本框说话内容.text)
         {
             打字动画开关 = s对话.Contains("<淡入>");
             s对话 = s对话.Replace("<淡入>", "");
@@ -379,7 +379,7 @@ public class Audiobook : MonoBehaviour
         }
 
         //名字 1
-        if (s人物 != "")
+        if (s人物 != "" && s对话 != 主名字.text)
         {
             if (s人物 != "&VO" && !s人物.StartsWith("//"))
             {    //旁白
@@ -414,27 +414,31 @@ public class Audiobook : MonoBehaviour
         {
             if (!s对话.StartsWith("tag >> "))
             {
-                文本框说话内容.text = "";
-                //文本框说话内容.text = 剧情文本.Cells[row, 2].Value.ToString();    
-
-                if (打字动画开关)
+                if (s对话 != 文本框说话内容.text)
                 {
-                    TextWriter.reRun = false;
-                    TextWriter.isActive = false;
-                    TextWriter.words = s对话;
-                    文本框说话内容.text = s对话;
+                    文本框说话内容.text = "";
+                    //文本框说话内容.text = 剧情文本.Cells[row, 2].Value.ToString();    
 
-                    if (中心文本状态)
-                        中心文本Text.GetComponent<OnEnableFadeIn>().OnEnable();
+                    if (打字动画开关)
+                    {
+                        TextWriter.reRun = false;
+                        TextWriter.isActive = false;
+                        TextWriter.words = s对话;
+                        文本框说话内容.text = s对话;
+
+                        if (中心文本状态)
+                            中心文本Text.GetComponent<OnEnableFadeIn>().OnEnable();
+                        else
+                            文本框说话内容.GetComponent<OnEnableFadeIn>().OnEnable();
+                    }
                     else
-                        文本框说话内容.GetComponent<OnEnableFadeIn>().OnEnable();
+                    {
+                        TextWriter.words = s对话;
+                        TextWriter.reRun = true;
+                    }
+
+                    SaveManager.data0.对话 = s对话;
                 }
-                else
-                {
-                    TextWriter.words = s对话;
-                    TextWriter.reRun = true;
-                }
-                SaveManager.data0.对话 = s对话;
             }
             else
             {

@@ -10,19 +10,16 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df15f716-9244-4e5d-9a09-fe099cb70bcd" name="更改" comment="暂存提交">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/基础.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/基础.prefab" afterDir="false" />
+    <list default="true" id="df15f716-9244-4e5d-9a09-fe099cb70bcd" name="更改" comment="Merge remote-tracking branch 'origin/shina实验分支' into shina实验分支">
       <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Audiobook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Audiobook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/Animation/A_MovedOver_Hit_B.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/Animation/A_MovedOver_Hit_B.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimationManger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimationManger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter1.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -157,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782317057694</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Merge remote-tracking branch 'origin/shina实验分支' into shina实验分支">
+      <option name="closed" value="true" />
+      <created>1782321919180</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1782321919180</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +203,7 @@
     <MESSAGE value="Unity6LST &amp; IdeologyRead.cs的性能问题" />
     <MESSAGE value="描述更改以及立绘管理" />
     <MESSAGE value="暂存提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="暂存提交" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/shina实验分支' into shina实验分支" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/shina实验分支' into shina实验分支" />
   </component>
 </project>
