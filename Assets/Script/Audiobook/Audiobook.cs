@@ -73,6 +73,7 @@ public class Audiobook : MonoBehaviour
     public GameObject 输入;
     public GameObject 输入框落点;
     public TextMeshProUGUI 中心文本Text;
+    public CharacterAnimationManger 立绘动画管理器;
 
     //关于延迟切换
     float clickCheckTimer = 0f;
@@ -526,11 +527,11 @@ public class Audiobook : MonoBehaviour
             {
                 var 分隔号 = s立绘.Split("|");
                 int 角色数位 = 0;
-                
+
                 float totalWidth = Screen.width;
                 float leftBound = -totalWidth / 2f; // -960
                 float segmentWidth = totalWidth / 分隔号.Length; // 每一份的宽度
-                
+
                 foreach (var item in 分隔号)
                 {
                     var 参数 = item.Split(" >> ");
@@ -546,6 +547,9 @@ public class Audiobook : MonoBehaviour
 
                     新立绘.transform.SetParent(立绘层.transform, false); //设置到立绘层
                     RectTransform rt = newImage.GetComponent<RectTransform>();
+                    
+                    float x = leftBound + (角色数位 + 0.5f) * segmentWidth;
+                    rt.anchoredPosition = new Vector2(x, 0); // Y轴置中
 
                     if (item.Contains(" >> "))
                     {
@@ -557,15 +561,9 @@ public class Audiobook : MonoBehaviour
                     else
                         newImage.color = new Color(1, 1, 1, 1.0f);
 
-                    float x = leftBound + (角色数位 + 0.5f) * segmentWidth;
-                    rt.anchoredPosition = new Vector2(x, 0); // Y轴置中
-                    
                     角色数位++;
                 }
             }
-
-            SaveManager.data0.立绘 = s立绘;
-            上个立绘集 = s立绘;
         }
 
         //立绘头像 9
@@ -765,6 +763,7 @@ public class Audiobook : MonoBehaviour
         //删除qtes
         qTEManager.DeleteAll();
         choiseManager.DeleteAll();
+        立绘动画管理器.disEmploy();
         BeforeVideo = false;
 
         if (gotoRow != -1)
@@ -1179,6 +1178,11 @@ public class Audiobook : MonoBehaviour
                         }
                 }
             }
+            //立绘动作
+            if (指令头.Equals("播放立绘动画"))
+            {
+                立绘动画管理器.Apply(参数[1]);
+            }
         }
     }
 
@@ -1339,6 +1343,26 @@ public class Audiobook : MonoBehaviour
             transform = 立绘层.transform.GetChild(i);
             Destroy(transform.gameObject);
         }
+    }
+    
+    public void 恢复立绘位置()
+    {
+            int 角色数位 = 0;
+
+            float totalWidth = Screen.width;
+            float leftBound = -totalWidth / 2f; // -960
+            float segmentWidth = totalWidth / 立绘层.transform.childCount; // 每一份的宽度
+
+            foreach (var item in 立绘层.GetComponentsInChildren<Transform>())
+            {
+                //创建立绘
+                RectTransform rt = item.GetComponent<RectTransform>();
+
+                float x = leftBound + (角色数位 + 0.5f) * segmentWidth;
+                rt.anchoredPosition = new Vector2(x, 0); // Y轴置中
+
+                角色数位++;
+            }
     }
 
     public static int 搜寻Tag行(string target)
