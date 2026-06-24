@@ -522,48 +522,10 @@ public class Audiobook : MonoBehaviour
         //立绘7
         if (s立绘 != "" && (s立绘 != 上个立绘集 || recovery))
         {
-            清空立绘();
-            if (s立绘 != "None")
-            {
-                var 分隔号 = s立绘.Split("|");
-                int 角色数位 = 0;
-
-                float totalWidth = Screen.width;
-                float leftBound = -totalWidth / 2f; // -960
-                float segmentWidth = totalWidth / 分隔号.Length; // 每一份的宽度
-
-                foreach (var item in 分隔号)
-                {
-                    var 参数 = item.Split(" >> ");
-
-                    //创建立绘
-
-                    GameObject 新立绘 = new GameObject(角色数位.ToString()); //以使用ID为名字，方便后续调用动作
-                    RawImage newImage = 新立绘.AddComponent<RawImage>();
-                    //目前只支持淡入淡出，但是要入场动画的话，就只有先透明了
-                    newImage.color = new Color(1, 1, 1, 0f);
-                    newImage.texture = Resources.Load("Characters/" + 参数[0], typeof(Texture2D)) as Texture2D;
-                    newImage.GetComponent<RectTransform>().sizeDelta = new Vector2(1920, 1080); //和文件一致 
-
-                    新立绘.transform.SetParent(立绘层.transform, false); //设置到立绘层
-                    RectTransform rt = newImage.GetComponent<RectTransform>();
-                    
-                    float x = leftBound + (角色数位 + 0.5f) * segmentWidth;
-                    rt.anchoredPosition = new Vector2(x, 0); // Y轴置中
-
-                    if (item.Contains(" >> "))
-                    {
-                        if (参数[1] == "淡入")
-                            newImage.AddComponent<FadeIn>().Rest();
-                        if (参数[1] == "淡出")
-                            newImage.AddComponent<FadeOut>().Rest();
-                    }
-                    else
-                        newImage.color = new Color(1, 1, 1, 1.0f);
-
-                    角色数位++;
-                }
-            }
+            上个立绘集 = s立绘;
+            SaveManager.data0.立绘 = s立绘;
+            
+            生成立绘();
         }
 
         //立绘头像 9
@@ -752,6 +714,7 @@ public class Audiobook : MonoBehaviour
         SaveManager.data0.progress = backTo;
         SaveManager.data0.chapter = Chapter;
 
+        立绘动画管理器.disEmploy();
         转场(backTo, 剧情文本.Cells[oldRow, 转场特效Line].Value);
     }
     public void 下一行()
@@ -1344,25 +1307,51 @@ public class Audiobook : MonoBehaviour
             Destroy(transform.gameObject);
         }
     }
-    
-    public void 恢复立绘位置()
+
+    public void 生成立绘(bool 入场动画 = true)
     {
+        清空立绘();
+        if (上个立绘集 != "None")
+        {
+            var 分隔号 = 上个立绘集.Split("|");
             int 角色数位 = 0;
 
             float totalWidth = Screen.width;
             float leftBound = -totalWidth / 2f; // -960
-            float segmentWidth = totalWidth / 立绘层.transform.childCount; // 每一份的宽度
+            float segmentWidth = totalWidth / 分隔号.Length; // 每一份的宽度
 
-            foreach (var item in 立绘层.GetComponentsInChildren<Transform>())
+            foreach (var item in 分隔号)
             {
-                //创建立绘
-                RectTransform rt = item.GetComponent<RectTransform>();
+                var 参数 = item.Split(" >> ");
 
+                //创建立绘
+
+                GameObject 新立绘 = new GameObject(角色数位.ToString()); //以使用ID为名字，方便后续调用动作
+                RawImage newImage = 新立绘.AddComponent<RawImage>();
+                //目前只支持淡入淡出，但是要入场动画的话，就只有先透明了
+                newImage.color = new Color(1, 1, 1, 0f);
+                newImage.texture = Resources.Load("Characters/" + 参数[0], typeof(Texture2D)) as Texture2D;
+                newImage.GetComponent<RectTransform>().sizeDelta = new Vector2(1920, 1080); //和文件一致 
+
+                新立绘.transform.SetParent(立绘层.transform, false); //设置到立绘层
+                RectTransform rt = newImage.GetComponent<RectTransform>();
+                    
                 float x = leftBound + (角色数位 + 0.5f) * segmentWidth;
                 rt.anchoredPosition = new Vector2(x, 0); // Y轴置中
 
+                if (item.Contains(" >> ") && 入场动画)
+                {
+                    if (参数[1] == "淡入")
+                        newImage.AddComponent<FadeIn>().Rest();
+                    if (参数[1] == "淡出")
+                        newImage.AddComponent<FadeOut>().Rest();
+                }
+                else
+                    newImage.color = new Color(1, 1, 1, 1.0f);
+
                 角色数位++;
             }
+        }
     }
 
     public static int 搜寻Tag行(string target)

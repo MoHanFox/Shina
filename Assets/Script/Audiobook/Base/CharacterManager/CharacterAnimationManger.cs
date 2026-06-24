@@ -14,8 +14,9 @@ public class CharacterAnimationManger: MonoBehaviour
         if (name == "A_MovedOver_Hit_B")
         {
             var animation = gameObject.AddComponent<A_MovedOver_Hit_B>();
-            animation.A = gameObject.transform.GetChild(int.Parse(参数[1]));
-            animation.B = gameObject.transform.GetChild(int.Parse(参数[2]));
+            animation.A = gameObject.transform.GetChild(int.Parse(参数[1])).GetComponent<RectTransform>();
+            animation.B = gameObject.transform.GetChild(int.Parse(参数[2])).GetComponent<RectTransform>();
+            animation.PlaySequence();
         }
     }
     
@@ -24,12 +25,13 @@ public class CharacterAnimationManger: MonoBehaviour
         if(!hasAnimation())
             return;
         
-        foreach (var VARIABLE in gameObject.GetComponents<CharacterAnimation>())
+        foreach (var VARIABLE in gameObject.GetComponents<Component>())
         {
-            Destroy(VARIABLE);
+            if(VARIABLE is CharacterAnimation)
+             Destroy(VARIABLE);
         }
         
-        audiobook.恢复立绘位置();
+        audiobook.生成立绘(false);
     }
     
     public bool hasAnimation()

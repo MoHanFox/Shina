@@ -10,8 +10,14 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df15f716-9244-4e5d-9a09-fe099cb70bcd" name="更改" comment="描述更改以及立绘管理">
+    <list default="true" id="df15f716-9244-4e5d-9a09-fe099cb70bcd" name="更改" comment="暂存提交">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/基础.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/基础.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Audiobook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Audiobook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/Animation/A_MovedOver_Hit_B.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/Animation/A_MovedOver_Hit_B.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimationManger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimationManger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter1.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +123,7 @@
       <workItem from="1782305580351" duration="298000" />
       <workItem from="1782305993606" duration="73000" />
       <workItem from="1782306173996" duration="680000" />
-      <workItem from="1782306879438" duration="9930000" />
+      <workItem from="1782306879438" duration="13581000" />
     </task>
     <task id="LOCAL-00001" summary="Unity6LST &amp; IdeologyRead.cs的性能问题">
       <option name="closed" value="true" />
@@ -143,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782313183020</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="暂存提交">
+      <option name="closed" value="true" />
+      <created>1782317057694</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1782317057694</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +197,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Unity6LST &amp; IdeologyRead.cs的性能问题" />
     <MESSAGE value="描述更改以及立绘管理" />
-    <option name="LAST_COMMIT_MESSAGE" value="描述更改以及立绘管理" />
+    <MESSAGE value="暂存提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="暂存提交" />
   </component>
 </project>
