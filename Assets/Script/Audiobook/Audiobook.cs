@@ -24,7 +24,9 @@ public class Audiobook : MonoBehaviour
     public TextMeshProUGUI 主名字;
     public GameObject 名字OBJ;
     public TextMeshProUGUI 文本框说话内容;
-    public GameObject 立绘层;
+    public RawImage 主立绘;
+    public RawImage 中立绘;
+    public RawImage 次立绘;
     public RawImage 头像;
     bool 头像统一 = true;
     private string 上个立绘集 = "";
@@ -521,49 +523,107 @@ public class Audiobook : MonoBehaviour
         //立绘7
         if (s立绘 != "" && (s立绘 != 上个立绘集 || recovery))
         {
-            清空立绘();
-            if (s立绘 != "None")
+            if (s立绘.Contains("|"))
             {
-                var 分隔号 = s立绘.Split("|");
-                int 角色数位 = 0;
-                
-                float totalWidth = Screen.width;
-                float leftBound = -totalWidth / 2f; // -960
-                float segmentWidth = totalWidth / 分隔号.Length; // 每一份的宽度
-                
-                foreach (var item in 分隔号)
+                if (s立绘.Split("|").Length == 2)
                 {
-                    var 参数 = item.Split(" >> ");
+                    var 参数1 = s立绘.Split("|")[0].Split(" >> ");
+                    var 参数2 = s立绘.Split("|")[1].Split(" >> ");
 
-                    //创建立绘
+                    主立绘.texture = Resources.Load("Characters/" + 参数1[0], typeof(Texture2D)) as Texture2D;
+                    次立绘.texture = Resources.Load("Characters/" + 参数2[0], typeof(Texture2D)) as Texture2D;
 
-                    GameObject 新立绘 = new GameObject(角色数位.ToString()); //以使用ID为名字，方便后续调用动作
-                    RawImage newImage = 新立绘.AddComponent<RawImage>();
-                    //目前只支持淡入淡出，但是要入场动画的话，就只有先透明了
-                    newImage.color = new Color(1, 1, 1, 0f);
-                    newImage.texture = Resources.Load("Characters/" + 参数[0], typeof(Texture2D)) as Texture2D;
-                    newImage.GetComponent<RectTransform>().sizeDelta = new Vector2(1920, 1080); //和文件一致 
-
-                    新立绘.transform.SetParent(立绘层.transform, false); //设置到立绘层
-                    RectTransform rt = newImage.GetComponent<RectTransform>();
-
-                    if (item.Contains(" >> "))
+                    if (s立绘.Split("|")[0].Contains(" >> "))
                     {
-                        if (参数[1] == "淡入")
-                            newImage.AddComponent<FadeIn>().Rest();
-                        if (参数[1] == "淡出")
-                            newImage.AddComponent<FadeOut>().Rest();
+                        if (参数1[1] == "淡入")
+                            主立绘.gameObject.GetComponent<FadeIn>().Rest();
+                        if (参数1[1] == "淡出")
+                            主立绘.gameObject.GetComponent<FadeOut>().Rest();
                     }
                     else
-                        newImage.color = new Color(1, 1, 1, 1.0f);
+                        主立绘.color = new Color(1, 1, 1, 1f);
 
-                    float x = leftBound + (角色数位 + 0.5f) * segmentWidth;
-                    rt.anchoredPosition = new Vector2(x, 0); // Y轴置中
-                    
-                    角色数位++;
+                    if (s立绘.Split("|")[1].Contains(" >> "))
+                    {
+                        if (参数2[1] == "淡入")
+                            次立绘.gameObject.GetComponent<FadeIn>().Rest();
+                        if (参数2[1] == "淡出")
+                            次立绘.gameObject.GetComponent<FadeOut>().Rest();
+                    }
+                    else
+                        次立绘.color = new Color(1, 1, 1, 1f);
+
+                    中立绘.color = new Color(1, 1, 1, 0.0f);     //隐藏立绘
+                }
+                if (s立绘.Split("|").Length == 3)
+                {
+                    var 参数1 = s立绘.Split("|")[0].Split(" >> ");
+                    var 参数2 = s立绘.Split("|")[1].Split(" >> ");
+                    var 参数3 = s立绘.Split("|")[2].Split(" >> ");
+
+                    主立绘.texture = Resources.Load("Characters/" + 参数1[0], typeof(Texture2D)) as Texture2D;
+                    中立绘.texture = Resources.Load("Characters/" + 参数2[0], typeof(Texture2D)) as Texture2D;
+                    次立绘.texture = Resources.Load("Characters/" + 参数3[0], typeof(Texture2D)) as Texture2D;
+
+                    if (s立绘.Split("|")[0].Contains(" >> "))
+                    {
+                        if (参数1[1] == "淡入")
+                            主立绘.gameObject.GetComponent<FadeIn>().Rest();
+                        if (参数1[1] == "淡出")
+                            主立绘.gameObject.GetComponent<FadeOut>().Rest();
+                    }
+                    else
+                        主立绘.color = new Color(1, 1, 1, 1f);
+
+                    if (s立绘.Split("|")[1].Contains(" >> "))
+                    {
+                        if (参数2[1] == "淡入")
+                            中立绘.gameObject.GetComponent<FadeIn>().Rest();
+                        if (参数2[1] == "淡出")
+                            中立绘.gameObject.GetComponent<FadeOut>().Rest();
+                    }
+                    else
+                        中立绘.color = new Color(1, 1, 1, 1f);
+
+                    if (s立绘.Split("|")[2].Contains(" >> "))
+                    {
+                        if (参数3[1] == "淡入")
+                            次立绘.gameObject.GetComponent<FadeIn>().Rest();
+                        if (参数3[1] == "淡出")
+                            次立绘.gameObject.GetComponent<FadeOut>().Rest();
+                    }
+                    else
+                        次立绘.color = new Color(1, 1, 1, 1f);
+
                 }
             }
+            else
+            {
+                if (s立绘 == "None")
+                {
+                    清空立绘();
+                }
+                else
+                {
+                    var 参数 = s立绘.Split(" >> ");
 
+                    //只有一个默认中间
+                    主立绘.color = new Color(1, 1, 1, 0.0f);     //隐藏立绘
+                    次立绘.color = new Color(1, 1, 1, 0.0f);     //隐藏立绘
+
+                    if (s立绘.Contains(" >> "))
+                    {
+                        if (参数[1] == "淡入")
+                            中立绘.gameObject.GetComponent<FadeIn>().Rest();
+                        if (参数[1] == "淡出")
+                            中立绘.gameObject.GetComponent<FadeOut>().Rest();
+                    }
+                    else
+                        中立绘.color = new Color(1, 1, 1, 1.0f);
+
+                    中立绘.texture = Resources.Load("Characters/" + 参数[0], typeof(Texture2D)) as Texture2D;
+                }
+            }
             SaveManager.data0.立绘 = s立绘;
             上个立绘集 = s立绘;
         }
@@ -1333,12 +1393,9 @@ public class Audiobook : MonoBehaviour
 
     public void 清空立绘()
     {
-        Transform transform;
-        for (int i = 0; i < 立绘层.transform.childCount; i++)
-        {
-            transform = 立绘层.transform.GetChild(i);
-            Destroy(transform.gameObject);
-        }
+        主立绘.color = new Color(1, 1, 1, 0.0f);     //隐藏立绘
+        次立绘.color = new Color(1, 1, 1, 0.0f);     //隐藏立绘
+        中立绘.color = new Color(1, 1, 1, 0.0f);     //隐藏立绘
     }
 
     public static int 搜寻Tag行(string target)
