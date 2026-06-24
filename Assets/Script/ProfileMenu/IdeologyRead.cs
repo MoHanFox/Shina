@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -232,21 +233,15 @@ public class IdeologyRead : MonoBehaviour
                 }
             }
         }
+        
+        dataChanged = true;
     }
 
-    private void OnEnable()
+    private void Start()
     {
+        needReloadIde = true;
         activeInstance = this;
         Initialize();
-
-        if (needReloadIde)
-            ClearAll();
-
-        loadIde();
-
-        dataChanged = true;
-        stickToBottomNextRefresh = true;
-        RefreshVisible(true);
     }
 
     private void OnDisable()
@@ -255,19 +250,12 @@ public class IdeologyRead : MonoBehaviour
             activeInstance = null;
     }
 
-    private void OnDestroy()
-    {
-        if (activeInstance == this)
-            activeInstance = null;
-
-        if (anyInstance == this)
-            anyInstance = null;
-    }
-
     private void Update()
     {
         if (!initialized)
+        {
             return;
+        }
 
         float normalized = scrollRect != null ? scrollRect.verticalNormalizedPosition : 1f;
         float width = GetCurrentContentWidth();
@@ -324,8 +312,6 @@ public class IdeologyRead : MonoBehaviour
 
         if (!overflowed && anyInstance != null)
             anyInstance.TryMeasureLatestEntry();
-
-        dataChanged = true;
     }
 
     private void TryMeasureLatestEntry()
@@ -406,7 +392,7 @@ public class IdeologyRead : MonoBehaviour
         ConfigureScrollRect();
         ConfigureContentTransform();
 
-
+        stickToBottomNextRefresh = true;
 
         initialized = true;
     }
