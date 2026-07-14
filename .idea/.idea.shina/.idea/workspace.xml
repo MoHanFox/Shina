@@ -10,8 +10,22 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df15f716-9244-4e5d-9a09-fe099cb70bcd" name="更改" comment="Merge remote-tracking branch 'origin/shina实验分支' into shina实验分支">
+    <list default="true" id="df15f716-9244-4e5d-9a09-fe099cb70bcd" name="更改" comment="Sth">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/shelf/___.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/shelf/___1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/shelf/在变基之前未提交的更改_[更改]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/shelf/在变基之前未提交的更改_[更改]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Audiobook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Audiobook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/Button/AutoRead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/Button/AutoRead.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/Animation/A_MovedOver_Hit_B.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/Animation/A_MovedOver_Hit_B.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimationManger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimationManger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter1.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter2.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter2.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter3.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter3.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter4.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter4.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter_Intro.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter_Intro.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +135,7 @@
       <workItem from="1782305993606" duration="73000" />
       <workItem from="1782306173996" duration="680000" />
       <workItem from="1782306879438" duration="13581000" />
+      <workItem from="1784041890020" duration="2470000" />
     </task>
     <task id="LOCAL-00001" summary="Unity6LST &amp; IdeologyRead.cs的性能问题">
       <option name="closed" value="true" />
@@ -162,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782321919180</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Sth">
+      <option name="closed" value="true" />
+      <created>1782322261641</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1782322261641</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +227,7 @@
     <MESSAGE value="描述更改以及立绘管理" />
     <MESSAGE value="暂存提交" />
     <MESSAGE value="Merge remote-tracking branch 'origin/shina实验分支' into shina实验分支" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/shina实验分支' into shina实验分支" />
+    <MESSAGE value="Sth" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sth" />
   </component>
 </project>

@@ -29,7 +29,7 @@ public class AutoRead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (autoing && !audiobook.不可点击切换() && audiobook.autoCheckTimer >= audiobook.autoWaitTime && !TextWriter.isActive && 判断视频性质())
+        if (autoing && !audiobook.不可点击切换() && audiobook.autoCheckTimer >= audiobook.autoWaitTime && !TextWriter.isActive && 判断视频性质() & !CharacterAnimationManger.playing)
         {
             passed += Time.deltaTime;
 

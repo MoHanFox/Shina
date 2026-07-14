@@ -381,28 +381,18 @@ public class Audiobook : MonoBehaviour
         //名字 1
         if (s人物 != "" && s对话 != 主名字.text)
         {
-            if (s人物 != "&VO" && !s人物.StartsWith("//"))
-            {    //旁白
-                主名字.text = s人物;
-                SaveManager.data0.人物 = s人物;
-            }
-
-            if (s人物 == "&VO")
-            {    //旁白
-                主名字.text = "";
-                SaveManager.data0.人物 = "&VO";
-            }
-
+            主名字.text = s人物;
+            SaveManager.data0.人物 = s人物;
 
             if (s人物 == "&Scene")
             {
                 阅读覆盖.SetActive(false);
+                主名字.text = s人物;
             }
-            else
-                if (!阅读覆盖.activeInHierarchy)
-                    阅读覆盖.SetActive(true);
+            else if (!阅读覆盖.activeInHierarchy)
+                阅读覆盖.SetActive(true);
 
-            bool 隐藏名字OBJ = 主名字.text == "&Scene" || 主名字.text == "" || 中心文本状态;
+            bool 隐藏名字OBJ = 主名字.text == "&VO" || 中心文本状态;
             if (名字OBJ.activeInHierarchy && 隐藏名字OBJ)
                 名字OBJ.SetActive(false);
             if (!名字OBJ.activeInHierarchy && !隐藏名字OBJ)
@@ -458,6 +448,7 @@ public class Audiobook : MonoBehaviour
         else
         {
             TextWriter.isActive = false;
+            文本框说话内容.text = s对话;
         }
 
         //语音 3 
@@ -635,7 +626,7 @@ public class Audiobook : MonoBehaviour
 
             //所作所为记入历史
             if (s人物 != "&Scene")
-                HistoryRecord.addContext((主名字.text == "") ? "-" : 主名字.text, s对话);
+                HistoryRecord.addContext((主名字.text == "&VO") ? "-" : 主名字.text, s对话);
         }
     }
 

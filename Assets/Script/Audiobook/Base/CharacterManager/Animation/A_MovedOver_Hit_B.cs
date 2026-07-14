@@ -37,8 +37,9 @@ public class A_MovedOver_Hit_B : CharacterAnimation
     private Vector3 bOriginScale;    // B的原始缩放（用于跳跃挤压拉伸后复位）
 
     // ---------- 对外调用接口 ----------
-    public void PlaySequence()
+    public override void PlaySequence()
     {
+        CharacterAnimationManger.playing = true;
         // 重置状态
         currentState = State.MovingA;
         timer = 0f;
@@ -152,6 +153,11 @@ public class A_MovedOver_Hit_B : CharacterAnimation
             A.anchoredPosition = aStartPos;
             currentState = State.Done;
         }
+    }
+
+    public override void Done()
+    {
+        CharacterAnimationManger.playing = false;
     }
 
     // （可选）如果你希望动画播放完毕后，点击继续执行下一步，可以加个检测

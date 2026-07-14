@@ -3,6 +3,7 @@ using UnityEngine;
 public class CharacterAnimationManger: MonoBehaviour
 {
     public Audiobook audiobook;
+    public static bool playing;
     
     public void Apply(string value)
     {
@@ -22,6 +23,7 @@ public class CharacterAnimationManger: MonoBehaviour
     
     public void disEmploy()
     {
+        playing = false;
         if(!hasAnimation())
             return;
         
