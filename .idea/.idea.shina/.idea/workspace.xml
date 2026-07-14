@@ -11,21 +11,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df15f716-9244-4e5d-9a09-fe099cb70bcd" name="更改" comment="Sth">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/shelf/___.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/shelf/___1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/shelf/在变基之前未提交的更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/shelf/在变基之前未提交的更改_[更改]1/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Background/序章/辞职1_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Background/序章/辞职1_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Background/序章/辞职1_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Background/序章/辞职1_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Background/序章/辞职2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Background/序章/辞职2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Background/序章/面试.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Background/序章/面试.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/Feature/刘宇轩.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Characters/Feature/刘宇轩.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/Feature/漠寒.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Characters/Feature/漠寒.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/叶苏明_上裸.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/叶苏明_上裸.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/漠寒.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Characters/漠寒.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/漠寒_上裸.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/漠寒_上裸.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/漠寒_作战服.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Characters/漠寒_作战服.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Audiobook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Audiobook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/Button/AutoRead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/Button/AutoRead.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/Animation/A_MovedOver_Hit_B.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/Animation/A_MovedOver_Hit_B.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimationManger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimationManger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter1.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter2.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter2.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter3.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter3.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter4.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter4.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter_Intro.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter_Intro.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +137,7 @@
       <workItem from="1782306173996" duration="680000" />
       <workItem from="1782306879438" duration="13581000" />
       <workItem from="1784041890020" duration="2470000" />
+      <workItem from="1784055849377" duration="1255000" />
     </task>
     <task id="LOCAL-00001" summary="Unity6LST &amp; IdeologyRead.cs的性能问题">
       <option name="closed" value="true" />

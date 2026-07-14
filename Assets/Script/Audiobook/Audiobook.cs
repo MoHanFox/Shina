@@ -1310,14 +1310,15 @@ public class Audiobook : MonoBehaviour
         {
             var 分隔号 = 上个立绘集.Split("|");
             int 角色数位 = 0;
-
-            float totalWidth = Screen.width;
+            
+            float totalWidth = 1920;
             float leftBound = -totalWidth / 2f; // -960
             float segmentWidth = totalWidth / 分隔号.Length; // 每一份的宽度
 
             foreach (var item in 分隔号)
             {
                 var 参数 = item.Split(" >> ");
+                bool 翻转 = 参数[0].StartsWith("^");
 
                 //创建立绘
 
@@ -1325,8 +1326,10 @@ public class Audiobook : MonoBehaviour
                 RawImage newImage = 新立绘.AddComponent<RawImage>();
                 //目前只支持淡入淡出，但是要入场动画的话，就只有先透明了
                 newImage.color = new Color(1, 1, 1, 0f);
-                newImage.texture = Resources.Load("Characters/" + 参数[0], typeof(Texture2D)) as Texture2D;
+                newImage.texture = Resources.Load("Characters/" + 参数[0].Replace("^",""), typeof(Texture2D)) as Texture2D;
                 newImage.GetComponent<RectTransform>().sizeDelta = new Vector2(1920, 1080); //和文件一致 
+                if(翻转)
+                    newImage.rectTransform.localScale = new Vector2(-1,1);
 
                 新立绘.transform.SetParent(立绘层.transform, false); //设置到立绘层
                 RectTransform rt = newImage.GetComponent<RectTransform>();
