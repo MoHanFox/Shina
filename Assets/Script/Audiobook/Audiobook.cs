@@ -708,8 +708,7 @@ public class Audiobook : MonoBehaviour
 
         SaveManager.data0.progress = backTo;
         SaveManager.data0.chapter = Chapter;
-
-        立绘动画管理器.disEmploy();
+        
         转场(backTo, 剧情文本.Cells[oldRow, 转场特效Line].Value);
     }
     public void 下一行()
@@ -721,7 +720,6 @@ public class Audiobook : MonoBehaviour
         //删除qtes
         qTEManager.DeleteAll();
         choiseManager.DeleteAll();
-        立绘动画管理器.disEmploy();
         BeforeVideo = false;
 
         if (gotoRow != -1)
@@ -771,6 +769,11 @@ public class Audiobook : MonoBehaviour
 #else
                     Application.Quit();
 #endif
+            }
+            if (指令头.Equals("重置立绘"))      //重新生成立绘，用于结束动画后手动结束
+            {
+                if(立绘动画管理器.hasAnimation())
+                立绘动画管理器.disEmploy();
             }
             if (指令头.Equals("输入"))   //输入 >> value >> 标题 >> goto >> back
             {
@@ -1041,10 +1044,10 @@ public class Audiobook : MonoBehaviour
                 }
                 TagManager.addGlobalTag("Profile:Unlock:" + 参数[1]);
             }
-            //暂停背景音乐 or 暂停背景音乐 >> xx >> xx
+            //暂停背景音乐 or 暂停背景音乐 >> xx
             if (指令头.Equals("暂停背景音乐"))
             {
-                if (参数.Length == 1)
+                if (参数.Length == 1)     //暂停所有
                 {
                     foreach (var audio in 背景音乐Object.GetComponents<AudioSource>())
                     {
@@ -1073,6 +1076,9 @@ public class Audiobook : MonoBehaviour
                     foreach (var audio in 背景音乐Object.GetComponents<AudioSource>())
                     {
                         audio.UnPause();
+
+                        if (!audio.isPlaying)      //防止因播放完成而造成无法开始
+                            audio.Play();
                     }
                 }
                 else
@@ -1084,6 +1090,9 @@ public class Audiobook : MonoBehaviour
                             {
                                 item.UnPause();
 
+                                if (!item.isPlaying)      //防止因播放完成而造成无法开始
+                                    item.Play();
+                                
                                 break;
                             }
                     }
@@ -1114,9 +1123,12 @@ public class Audiobook : MonoBehaviour
                     if (item.clip != null)
                         if (item.clip.name.Equals(参数[1]))
                         {
+                            if(!item.isPlaying)    //防止因 [播放完成/未播放] 而造成无法开始
+                                item.Play();
+                            
                             item.time = float.Parse(参数[2]);
                             item.UnPause();
-
+                            
                             break;
                         }
                 }
@@ -1130,8 +1142,8 @@ public class Audiobook : MonoBehaviour
                         if (item.clip.name.Equals(参数[1]))
                         {
                             item.loop = bool.Parse(参数[2]);
-                            item.UnPause();
-
+                            item.UnPause();             //在loop时，音频会无限循环，无需停止检测
+                            
                             break;
                         }
                 }

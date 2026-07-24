@@ -10,7 +10,11 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df15f716-9244-4e5d-9a09-fe099cb70bcd" name="更改" comment="Sth" />
+    <list default="true" id="df15f716-9244-4e5d-9a09-fe099cb70bcd" name="更改" comment="Add">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Audiobook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Audiobook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter1.xlsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +32,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2c108b7ce3e5416da8e3c9da8f27a58622a00/19/cfefe4cd/AudioSource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Audiobook/Base/CharacterManager/CharacterAnimationManger.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -121,6 +126,8 @@
       <workItem from="1782306879438" duration="13581000" />
       <workItem from="1784041890020" duration="2470000" />
       <workItem from="1784055849377" duration="1315000" />
+      <workItem from="1784110132626" duration="52000" />
+      <workItem from="1784911117854" duration="3868000" />
     </task>
     <task id="LOCAL-00001" summary="Unity6LST &amp; IdeologyRead.cs的性能问题">
       <option name="closed" value="true" />
@@ -178,7 +185,23 @@
       <option name="project" value="LOCAL" />
       <updated>1784058469753</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Sth">
+      <option name="closed" value="true" />
+      <created>1784110157703</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1784110157703</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add">
+      <option name="closed" value="true" />
+      <created>1784110173652</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1784110173652</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +244,7 @@
     <MESSAGE value="暂存提交" />
     <MESSAGE value="Merge remote-tracking branch 'origin/shina实验分支' into shina实验分支" />
     <MESSAGE value="Sth" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sth" />
+    <MESSAGE value="Add" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add" />
   </component>
 </project>
