@@ -12,8 +12,16 @@
   <component name="ChangeListManager">
     <list default="true" id="df15f716-9244-4e5d-9a09-fe099cb70bcd" name="更改" comment="Add">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/OPPO Sans/OPlusSans3-Medium SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/OPPO Sans/OPlusSans3-Medium SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Background/漠寒和叶苏明的厕所.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Background/漠寒和叶苏明的厕所.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Option.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Option.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/信息框.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/信息框.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/历史.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/历史.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/档案.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/档案.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/读取存档.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/读取存档.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/Audiobook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/Audiobook.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter1.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter4.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Chapter/Chapter4.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +135,8 @@
       <workItem from="1784041890020" duration="2470000" />
       <workItem from="1784055849377" duration="1315000" />
       <workItem from="1784110132626" duration="52000" />
-      <workItem from="1784911117854" duration="3868000" />
+      <workItem from="1784911117854" duration="4480000" />
+      <workItem from="1785694397358" duration="827000" />
     </task>
     <task id="LOCAL-00001" summary="Unity6LST &amp; IdeologyRead.cs的性能问题">
       <option name="closed" value="true" />
@@ -201,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784110173652</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add">
+      <option name="closed" value="true" />
+      <created>1784916605925</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1784916605925</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1303,6 +1303,8 @@ public class Audiobook : MonoBehaviour
         {
             Destroy(audio);
         }
+        
+        立绘动画管理器.disEmploy();
     }
 
     public void 清空立绘()

@@ -33,10 +33,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1707427289489304820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.910327, y: -5.9102173}
-  m_SizeDelta: {x: 1960.551, y: 1090.5603}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &635450630747059065
 CanvasRenderer:
@@ -88,6 +88,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.5
   toAlpha: 0.45
+  done: 0
 --- !u!1 &375587569171324160
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,20 +193,23 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -238,6 +242,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.35
   toAlpha: 1
+  done: 0
 --- !u!1 &920776889506704273
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +418,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.35
   toAlpha: 1
+  done: 0
 --- !u!1 &986821244469886344
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,20 +523,23 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -563,6 +572,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.35
   toAlpha: 1
+  done: 0
 --- !u!1 &2092728473203175301
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +748,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.35
   toAlpha: 1
+  done: 0
 --- !u!1 &2157114340347376371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,20 +1011,23 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1046,6 +1060,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.35
   toAlpha: 1
+  done: 0
 --- !u!1 &2540305395571176560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,20 +1165,23 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1298,20 +1316,23 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1344,6 +1365,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.35
   toAlpha: 1
+  done: 0
 --- !u!1 &3798070452538766509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,20 +1470,23 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1494,6 +1519,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.35
   toAlpha: 1
+  done: 0
 --- !u!1 &5119673708624252531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,20 +1624,23 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1644,6 +1673,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.35
   toAlpha: 1
+  done: 0
 --- !u!1 &6330420759071547800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1849,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.35
   toAlpha: 1
+  done: 0
 --- !u!1 &7073117495410995832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,6 +2025,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.35
   toAlpha: 1
+  done: 0
 --- !u!1 &7078677740036668468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2213,20 +2245,23 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2259,6 +2294,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.35
   toAlpha: 1
+  done: 0
 --- !u!114 &3112498279421023685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2447,6 +2483,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.35
   toAlpha: 1
+  done: 0
 --- !u!1 &8789729445259929879
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,6 +2659,7 @@ MonoBehaviour:
   waittime: 0
   time: 0.35
   toAlpha: 1
+  done: 0
 --- !u!1 &9043971004383157541
 GameObject:
   m_ObjectHideFlags: 0
