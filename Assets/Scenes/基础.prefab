@@ -1314,15 +1314,13 @@ GameObject:
   m_Component:
   - component: {fileID: 14896437247069544}
   - component: {fileID: 375531370917548403}
-  - component: {fileID: 7709082625922323831}
-  - component: {fileID: 8250649552201904359}
   m_Layer: 5
-  m_Name: "\u906E\u76D6"
+  m_Name: "\u5168\u906E\u76D6\u70B9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &14896437247069544
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1339,8 +1337,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.09967041, y: 0}
-  m_SizeDelta: {x: 1919.8, y: 1080}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &375531370917548403
 CanvasRenderer:
@@ -1350,48 +1348,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780159286398471705}
   m_CullTransparentMesh: 1
---- !u!114 &7709082625922323831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780159286398471705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 0}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!114 &8250649552201904359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780159286398471705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f4defb6eea5bd46bc94c0b1227488a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waittime: 0.15
-  time: 0.5
-  audiobook: {fileID: 8718715188538266804}
 --- !u!1 &841653791015978379
 GameObject:
   m_ObjectHideFlags: 0
@@ -9171,6 +9127,7 @@ GameObject:
   - component: {fileID: 6253364992532163139}
   - component: {fileID: 8718715188538266804}
   - component: {fileID: 1138134452498809924}
+  - component: {fileID: 4071408781532088937}
   m_Layer: 5
   m_Name: "\u57FA\u7840"
   m_TagString: Untagged
@@ -9298,9 +9255,6 @@ MonoBehaviour:
   "\u6587\u672C\u6846\u8BF4\u8BDD\u5185\u5BB9": {fileID: 524119201130532305}
   "\u7ACB\u7ED8\u5C42": {fileID: 1236126964872255159}
   "\u5934\u50CF": {fileID: 7487465152058747481}
-  "\u8986\u76D6\u56FE\u7247": {fileID: 7709082625922323831}
-  "\u906E\u76D6": {fileID: 780159286398471705}
-  "\u6DE1\u5165\u8F6C\u573A\u8986\u76D6_Obj": {fileID: 9093125527546036643, guid: 0dc88d842e128bc4c80a49f380bdfc84, type: 3}
   "\u89C6\u9891\u64AD\u653E\u5668": {fileID: 1138134452498809924}
   "\u80CC\u666F": {fileID: 9178126217512059406}
   "\u80CC\u666F\u7F29\u653E\u6BD4\u4F8B": 1.05
@@ -9308,16 +9262,17 @@ MonoBehaviour:
   "\u573A\u666F\u52A0\u8F7D\u754C\u9762": {fileID: 5831540423113089103}
   "\u8BED\u97F3Object": {fileID: 0}
   "\u80CC\u666F\u97F3\u4E50Object": {fileID: 0}
-  choiseManager: {fileID: 2903828235585681281}
   "\u6587\u672C\u6846": {fileID: 2495988532132568026}
   "\u9605\u8BFB\u8986\u76D6": {fileID: 1851226677088170231}
   "\u5207\u6362\u97F3\u9891": {fileID: 0}
-  qTEManager: {fileID: 7736561811939131325}
   cameraShake: {fileID: 9206725001681978888}
   "\u8F93\u5165": {fileID: 4496849538229071121, guid: 41e1a59b70e66c04093b92b7d5d8491d, type: 3}
   "\u8F93\u5165\u6846\u843D\u70B9": {fileID: 2067887227357112306}
   "\u4E2D\u5FC3\u6587\u672CText": {fileID: 7347210471849182798}
   "\u7ACB\u7ED8\u52A8\u753B\u7BA1\u7406\u5668": {fileID: 4849456694937989132}
+  qTEManager: {fileID: 7736561811939131325}
+  choiseManager: {fileID: 2903828235585681281}
+  "\u8F6C\u573A\u7BA1\u7406\u5668": {fileID: 4071408781532088937}
   autoCheckTimer: 0
   autoWaitTime: -1
   "\u5185\u5BB9\u66F4\u65B0\u63D0\u793A": {fileID: 6160774044584689979}
@@ -9363,6 +9318,24 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &4071408781532088937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7236099002985102216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f4defb6eea5bd46bc94c0b1227488a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waittime: 0.15
+  time: 0.5
+  audiobook: {fileID: 8718715188538266804}
+  "\u5168\u906E\u76D6\u70B9": {fileID: 14896437247069544}
+  "\u6DE1\u5165\u8F6C\u573A\u8986\u76D6_Obj": {fileID: 9093125527546036643, guid: 0dc88d842e128bc4c80a49f380bdfc84, type: 3}
+  "\u6DE1\u5165\u65F6\u957F": 0.25
 --- !u!1 &7303525946893682318
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,10 +44,6 @@ public partial class Audiobook : MonoBehaviour
     bool 头像统一 = true;
     private string 上个立绘集 = "";
     private string 上个背景 = "";
-    public RawImage 覆盖图片;
-    public GameObject 遮盖;
-    public GameObject 淡入转场覆盖_Obj;
-    private GameObject 淡入转场覆盖_实例 = null;
 
     [Header("背景与gc")]
     public VideoPlayer 视频播放器;
@@ -77,16 +73,19 @@ public partial class Audiobook : MonoBehaviour
     private string 上个背景音乐集 = "";
 
     [Header("游戏功能类")]
-    public ChoiseManager choiseManager;
     public GameObject 文本框;
     public GameObject 阅读覆盖;
     public AudioSource 切换音频;
-    public QTEManager qTEManager;
     public CameraShake cameraShake;
     public GameObject 输入;
     public GameObject 输入框落点;
     public TextMeshProUGUI 中心文本Text;
+    
+    [Header("管理器")]
     public CharacterAnimationManger 立绘动画管理器;
+    public QTEManager qTEManager;
+    public ChoiseManager choiseManager;
+    public TransitionAnimManager 转场管理器;
 
     //关于延迟切换
     float clickCheckTimer = 0f;
@@ -285,7 +284,7 @@ public partial class Audiobook : MonoBehaviour
             return;
 
         //文本推进（Space / Enter / 点击内容）
-        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.KeypadEnter) || MouseClickedInContent) && !TransitionAnim.doAnim)
+        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.KeypadEnter) || MouseClickedInContent) && !TransitionAnimManager.doAnim)
         {
             if (MouseClickedInContent)
                 MouseClickedInContent = false;
@@ -497,40 +496,19 @@ public partial class Audiobook : MonoBehaviour
         转场(row, CellString(row, 转场特效Line));
     }
 
-    /// <summary>行切换：先应用转场特效，再展示目标行</summary>
+    /// <summary>行切换：先应用转场特效，再展示目标行（转场逻辑已迁移到 TransitionAnimManager.post）</summary>
     public void 转场(int target, string valueO)         //valueO 为转场特效列内容（白场/黑场/淡入/空）
     {
         row = target;
 
-        //6 是否填写了黑场白场的转场特效
-        if (!string.IsNullOrEmpty(valueO))
+        if (转场管理器 != null)
         {
-            if (valueO == "白场" || valueO == "黑场")
-            {
-                覆盖图片.color = valueO == "白场" ? new Color(1, 1, 1, 0) : new Color(0, 0, 0, 0);
-                遮盖.SetActive(true);
-            }
-            if (valueO == "淡入")
-            {
-                淡入转场覆盖_实例 = Instantiate(淡入转场覆盖_Obj);
-                RectTransform 实例Rect = 淡入转场覆盖_实例.GetComponent<RectTransform>();
-                RawImage 实例图 = 淡入转场覆盖_实例.GetComponent<RawImage>();
-                GraphicFadeOutAndDestroy 实例动画 = 淡入转场覆盖_实例.GetComponent<GraphicFadeOutAndDestroy>();
+            转场管理器.post(target, valueO);
+            return;
+        }
 
-                实例Rect.SetParent(背景Rect);
-                实例动画.time = 0.25f;
-                实例Rect.localScale = new(1, 1, 1);
-                实例Rect.localPosition = new(0, 0);
-                实例Rect.sizeDelta = 背景Rect.sizeDelta;
-                实例图.texture = 背景.texture;
-                实例图.color = new(1f, 1f, 1f, 背景目标明度);
-                ToRow(target);
-            }
-        }
-        else
-        {
-            ToRow(target);
-        }
+        //兜底：管理器未配置时直接切行
+        ToRow(target);
     }
 
     public bool 不可点击切换()        //你点不了，但可以用强制手段
@@ -545,11 +523,11 @@ public partial class Audiobook : MonoBehaviour
             return true;
         if (choiseManager.hasChoices())
             return true;
-        if (TransitionAnim.doAnim)
+        if (TransitionAnimManager.doAnim)
             return true;
         if (clickCheckTimer <= clickWaitTime)
             return true;
-        if (!淡入转场覆盖_实例.IsUnityNull())
+        if (TransitionAnimManager.淡入中)
             return true;
         if (输入框落点.transform.childCount > 0)
             return true;

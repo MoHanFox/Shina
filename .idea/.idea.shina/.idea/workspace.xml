@@ -10,7 +10,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df15f716-9244-4e5d-9a09-fe099cb70bcd" name="更改" comment="vibe coding: 优化一下底层逻辑">
+    <list default="true" id="df15f716-9244-4e5d-9a09-fe099cb70bcd" name="更改" comment="转场系统重构">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,6 +172,8 @@
       <workItem from="1785694397358" duration="891000" />
       <workItem from="1786128484098" duration="15000" />
       <workItem from="1786700876792" duration="4601000" />
+      <workItem from="1786706064895" duration="385000" />
+      <workItem from="1786731939818" duration="4592000" />
     </task>
     <task id="LOCAL-00001" summary="Unity6LST &amp; IdeologyRead.cs的性能问题">
       <option name="closed" value="true" />
@@ -277,7 +279,71 @@
       <option name="project" value="LOCAL" />
       <updated>1786705556175</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="文件名">
+      <option name="closed" value="true" />
+      <created>1786706368536</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1786706368536</updated>
+    </task>
+    <task id="LOCAL-00015" summary="漏了">
+      <option name="closed" value="true" />
+      <created>1786706387809</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1786706387809</updated>
+    </task>
+    <task id="LOCAL-00016" summary="转场系统重构">
+      <option name="closed" value="true" />
+      <created>1786735948866</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1786735948866</updated>
+    </task>
+    <task id="LOCAL-00017" summary="转场系统重构">
+      <option name="closed" value="true" />
+      <created>1786736072096</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1786736072096</updated>
+    </task>
+    <task id="LOCAL-00018" summary="转场系统重构">
+      <option name="closed" value="true" />
+      <created>1786736113016</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1786736113016</updated>
+    </task>
+    <task id="LOCAL-00019" summary="转场系统重构">
+      <option name="closed" value="true" />
+      <created>1786736164191</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1786736164191</updated>
+    </task>
+    <task id="LOCAL-00020" summary="转场系统重构">
+      <option name="closed" value="true" />
+      <created>1786736250670</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1786736250670</updated>
+    </task>
+    <task id="LOCAL-00021" summary="转场系统重构">
+      <option name="closed" value="true" />
+      <created>1786736300582</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1786736300582</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,6 +389,9 @@
     <MESSAGE value="Add" />
     <MESSAGE value="sth fix" />
     <MESSAGE value="vibe coding: 优化一下底层逻辑" />
-    <option name="LAST_COMMIT_MESSAGE" value="vibe coding: 优化一下底层逻辑" />
+    <MESSAGE value="文件名" />
+    <MESSAGE value="漏了" />
+    <MESSAGE value="转场系统重构" />
+    <option name="LAST_COMMIT_MESSAGE" value="转场系统重构" />
   </component>
 </project>
