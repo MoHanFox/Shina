@@ -12,6 +12,16 @@
   <component name="ChangeListManager">
     <list default="true" id="df15f716-9244-4e5d-9a09-fe099cb70bcd" name="更改" comment="转场系统重构">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.shina/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/淡出销毁一次性图像.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/淡出销毁一次性图像.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/TransitionAnim/Anims.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/TransitionAnim/Anims.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/TransitionAnim/Anims/TransFadeToBlack.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/TransitionAnim/Anims/TransFadeToBlack.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/TransitionAnim/Anims/TransFadeToWhite.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/TransitionAnim/Anims/TransFadeToWhite.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/TransitionAnim/TransAnimBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/TransitionAnim/TransAnimBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audiobook/TransitionAnim/TransitionAnimManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audiobook/TransitionAnim/TransitionAnimManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +183,7 @@
       <workItem from="1786128484098" duration="15000" />
       <workItem from="1786700876792" duration="4601000" />
       <workItem from="1786706064895" duration="385000" />
-      <workItem from="1786731939818" duration="4592000" />
+      <workItem from="1786731939818" duration="6375000" />
     </task>
     <task id="LOCAL-00001" summary="Unity6LST &amp; IdeologyRead.cs的性能问题">
       <option name="closed" value="true" />
@@ -343,7 +353,15 @@
       <option name="project" value="LOCAL" />
       <updated>1786736300582</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="转场系统重构">
+      <option name="closed" value="true" />
+      <created>1786736944619</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1786736944619</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
