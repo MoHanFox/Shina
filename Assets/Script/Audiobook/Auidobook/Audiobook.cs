@@ -238,8 +238,10 @@ public partial class Audiobook : MonoBehaviour
 
         明度渐变Tick();
 
-        //中心文本跟随打字进度（原在 OnGUI 每帧同步，这里仅在文本变化时同步）
-        if (中心文本状态 && TextWriter.isActive)
+        //中心文本跟随普通文本框内容（原在 OnGUI 每帧同步）。
+        //注意：不能加 TextWriter.isActive 条件 —— <淡入>/恢复/早退等非打字路径下
+        //TextWriter 不处于激活态，中心文本会漏同步，导致 <中心文本> 行字消失。
+        if (中心文本状态)
             同步中心文本();
 
         //DEBUG：Shift+R 重载章节
@@ -588,6 +590,7 @@ public partial class Audiobook : MonoBehaviour
         ChoiseManager.AutoChooseTime = -1f;
         ChoiseManager.chooseTimePassed = 0f;
         ChoiseManager.autoChooseTo = 0;
+        打字动画开关 = false;   //会话开始复位，避免重进游戏时沿用上一会话的陈旧值
 
         视频播放器.Stop();
         lastVideoTexture = null;

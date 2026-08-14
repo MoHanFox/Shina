@@ -13,77 +13,77 @@ public partial class Audiobook
     /// 把一行剧情应用到界面。
     /// 顺序与原实现一致：名字 → 对话 → 语音 → 背景音乐 → 立绘 → 头像 → 背景 → 选项/QTE/指令/历史。
     /// </summary>
-    void 内容更新(StoryRowData d, bool recovery = false)
+    void 内容更新(StoryRowData data, bool recovery = false)
     {
         //结构体未赋值的字段默认为 null（如存档恢复路径只填部分字段），统一规整为空串
-        d.人物 ??= "";
-        d.对话 ??= "";
-        d.语音 ??= "";
-        d.背景 ??= "";
-        d.背景音乐 ??= "";
-        d.立绘 ??= "";
-        d.头像 ??= "";
-        d.选项 ??= "";
-        d.QTE ??= "";
-        d.指令 ??= "";
+        data.人物 ??= "";
+        data.对话 ??= "";
+        data.语音 ??= "";
+        data.背景 ??= "";
+        data.背景音乐 ??= "";
+        data.立绘 ??= "";
+        data.头像 ??= "";
+        data.选项 ??= "";
+        data.QTE ??= "";
+        data.指令 ??= "";
 
         //预处理：淡入标记与中心文本标记（先于名字更新）
-        if (d.对话 != "" && d.对话 != 文本框说话内容.text)
+        if (data.对话 != "" && data.对话 != 文本框说话内容.text)
         {
-            打字动画开关 = d.对话.Contains("<淡入>");
-            d.对话 = d.对话.Replace("<淡入>", "");
+            打字动画开关 = data.对话.Contains("<淡入>");
+            data.对话 = data.对话.Replace("<淡入>", "");
 
-            中心文本(d.对话.Contains("<中心文本>"));
-            d.对话 = d.对话.Replace("<中心文本>", "");
+            中心文本(data.对话.Contains("<中心文本>"));
+            data.对话 = data.对话.Replace("<中心文本>", "");
         }
 
-        更新名字(d);
+        更新名字(data);
 
         //tag >> 行：原逻辑在此直接 return，跳过语音/背景/选项等所有后续更新
-        if (更新对话文本(d))
+        if (更新对话文本(data))
             return;
 
-        更新语音(d);
-        更新背景音乐(d);
-        更新立绘(d, recovery);
-        更新头像(d);
-        更新背景与视频(d, recovery);
+        更新语音(data);
+        更新背景音乐(data);
+        更新立绘(data, recovery);
+        更新头像(data);
+        更新背景与视频(data, recovery);
 
         if (recovery)
             return;
 
         //选项 10
         choiseManager.DeleteAll();
-        if (d.选项 != "")
-            choiseManager.post(d.选项);
+        if (data.选项 != "")
+            choiseManager.post(data.选项);
 
         //QTE 11
-        if (d.QTE != "")
+        if (data.QTE != "")
         {
             qteRect.localPosition = new Vector3(0, 0);
-            qTEManager.post(d.QTE);
+            qTEManager.post(data.QTE);
         }
 
         //指令 12
-        SpecialCommand(d.指令);
+        SpecialCommand(data.指令);
 
         //所作所为记入历史
-        if (d.人物 != "&Scene")
-            HistoryRecord.addContext((主名字.text == "&VO") ? "-" : 主名字.text, d.对话);
+        if (data.人物 != "&Scene")
+            HistoryRecord.addContext((主名字.text == "&VO") ? "-" : 主名字.text, data.对话);
     }
 
     //============================== 1 名字 ==============================
 
-    void 更新名字(StoryRowData d)
+    void 更新名字(StoryRowData data)
     {
         //注意：条件保持原实现（s对话 != 主名字.text），保证中心文本模式切换时名字OBJ显隐仍能刷新
-        if (d.人物 == "" || d.对话 == 主名字.text)
+        if (data.人物 == "" || data.对话 == 主名字.text)
             return;
 
-        主名字.text = d.人物;
-        SaveManager.data0.人物 = d.人物;
+        主名字.text = data.人物;
+        SaveManager.data0.人物 = data.人物;
 
-        if (d.人物 == "&Scene")
+        if (data.人物 == "&Scene")
         {
             阅读覆盖.SetActive(false);
         }
@@ -100,9 +100,9 @@ public partial class Audiobook
     //============================== 2 对话文本 ==============================
 
     /// <summary>更新对话文本。返回 true 表示该行是 tag 指令行（原逻辑直接 return，跳过后续所有更新）。</summary>
-    bool 更新对话文本(StoryRowData d)
+    bool 更新对话文本(StoryRowData data)
     {
-        if (d.对话 == "")
+        if (data.对话 == "")
         {
             TextWriter.isActive = false;
             文本框说话内容.text = "";
@@ -111,9 +111,9 @@ public partial class Audiobook
         }
 
         //tag >> #tag [ ] value >> true >> false
-        if (d.对话.StartsWith("tag >> "))
+        if (data.对话.StartsWith("tag >> "))
         {
-            string[] 分段 = d.对话.Split(" >> ");
+            string[] 分段 = data.对话.Split(" >> ");
             bool boolean = TagManager.满足条件(分段[1]);
             string target = boolean ? 分段[2] : 分段[3];
 
@@ -123,26 +123,27 @@ public partial class Audiobook
             return true;
         }
 
-        if (d.对话 == 文本框说话内容.text)
-            return false;
-
+        //注意：这里不再"文本相同就早退"。
+        //进入游戏时 GlobalHook 与 Unity 生命周期可能先后触发两次 OnEnable（读档恢复时则是
+        //"还原 + ToRow"两次），第二次应用时文本已相同；若早退，<淡入> 的淡入、打字重放
+        //以及中心文本同步都会被跳过 —— <中心文本> 行会因文本框移出屏幕而"字消失"。
         文本框说话内容.text = "";
         if (打字动画开关)
         {
             TextWriter.reRun = false;
             TextWriter.isActive = false;
-            TextWriter.words = d.对话;
-            文本框说话内容.text = d.对话;
+            TextWriter.words = data.对话;
+            文本框说话内容.text = data.对话;
 
             触发文本淡入();
         }
         else
         {
-            TextWriter.words = d.对话;
+            TextWriter.words = data.对话;
             TextWriter.reRun = true;
         }
 
-        SaveManager.data0.对话 = d.对话;
+        SaveManager.data0.对话 = data.对话;
         同步中心文本();
         return false;
     }
@@ -167,38 +168,38 @@ public partial class Audiobook
 
     //============================== 7 立绘 ==============================
 
-    void 更新立绘(StoryRowData d, bool recovery)
+    void 更新立绘(StoryRowData data, bool recovery)
     {
-        if (d.立绘 == "" || (d.立绘 == 上个立绘集 && !recovery))
+        if (data.立绘 == "" || (data.立绘 == 上个立绘集 && !recovery))
             return;
 
-        上个立绘集 = d.立绘;
-        SaveManager.data0.立绘 = d.立绘;
+        上个立绘集 = data.立绘;
+        SaveManager.data0.立绘 = data.立绘;
 
         生成立绘();
     }
 
     //============================== 8 头像 ==============================
 
-    void 更新头像(StoryRowData d)
+    void 更新头像(StoryRowData data)
     {
         //注意：offsetMax 调整的是"文本框文字区域"（文本框说话内容）而不是整个对话框容器（文本框），
         //给头像让出右侧空间——原实现如此，缓存 rect 时不要错用容器。
-        if (d.头像 != "")
+        if (data.头像 != "")
         {
-            文本框说话内容.rectTransform.offsetMax = new((d.头像 == "None") ? -125 : -365, 文本框说话内容.rectTransform.offsetMax.y);
-            头像.color = (d.头像 == "None") ? new(1, 1, 1, 0) : new(1, 1, 1, 1);
-            头像.texture = Resources.Load<Texture2D>("Characters/Feature/" + d.头像);
+            文本框说话内容.rectTransform.offsetMax = new((data.头像 == "None") ? -125 : -365, 文本框说话内容.rectTransform.offsetMax.y);
+            头像.color = (data.头像 == "None") ? new(1, 1, 1, 0) : new(1, 1, 1, 1);
+            头像.texture = Resources.Load<Texture2D>("Characters/Feature/" + data.头像);
 
-            SaveManager.data0.头像 = d.头像;
+            SaveManager.data0.头像 = data.头像;
             return;
         }
 
-        if (d.人物 == "")
+        if (data.人物 == "")
             return;
 
         //人物名对应的立绘头像（只加载一次，原实现重复加载了两次）
-        Texture2D 人物头像 = Resources.Load<Texture2D>("Characters/Feature/" + d.人物);
+        Texture2D 人物头像 = Resources.Load<Texture2D>("Characters/Feature/" + data.人物);
         if (人物头像 != null && 头像统一)
         {
             文本框说话内容.rectTransform.offsetMax = new(-365, 文本框说话内容.rectTransform.offsetMax.y);
@@ -214,21 +215,21 @@ public partial class Audiobook
 
     //============================== 4 背景与CG ==============================
 
-    void 更新背景与视频(StoryRowData d, bool recovery)
+    void 更新背景与视频(StoryRowData data, bool recovery)
     {
-        if (d.背景 == "" || d.背景 == 上个背景)     //是否填写的切换什么背景
+        if (data.背景 == "" || data.背景 == 上个背景)     //是否填写的切换什么背景
             return;
 
         背景Rect.localPosition = new Vector3(0, 0);
 
         背景缩放比例 = recovery ? SaveManager.data0.背景缩放比例 : 1.00f;
 
-        bool loop = d.背景.EndsWith("|Loop");
+        bool loop = data.背景.EndsWith("|Loop");
         视频播放器.isLooping = loop;
         if (loop)
-            d.背景 = d.背景.Replace("|Loop", "");
+            data.背景 = data.背景.Replace("|Loop", "");
 
-        UnityEngine.Object needLoadBackground = Resources.Load<UnityEngine.Object>("Background/" + d.背景);
+        UnityEngine.Object needLoadBackground = Resources.Load<UnityEngine.Object>("Background/" + data.背景);
 
         //判断是否是背景
         if (needLoadBackground is Texture2D t2dBg)
@@ -260,10 +261,10 @@ public partial class Audiobook
         }
         else
         {
-            Debug.LogWarning("背景资源不存在: Background/" + d.背景);
+            Debug.LogWarning("背景资源不存在: Background/" + data.背景);
         }
 
-        SaveManager.data0.背景 = d.背景;
-        上个背景 = d.背景;
+        SaveManager.data0.背景 = data.背景;
+        上个背景 = data.背景;
     }
 }
