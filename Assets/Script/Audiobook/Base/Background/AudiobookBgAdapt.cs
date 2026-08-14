@@ -1,15 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
+/// <summary>
+/// 背景跟随鼠标/触摸平移。
+/// 优化：消除原实现每帧 new Vector3[4] 与 GetComponent 分配，缓存引用、复用角点数组。
+/// </summary>
 public class AudiobookBgMove : MonoBehaviour
 {
     public RectTransform QTE;
     public RectTransform Background;
-    // Update is called once per frame
+
+    private RectTransform backgroundRect;
+    private readonly Vector3[] corners = new Vector3[4];
+
+    void Awake()
+    {
+        backgroundRect = Background.GetComponent<RectTransform>();
+    }
+
     void Update()
     {
         float mouseX = 0f;
@@ -32,23 +39,24 @@ public class AudiobookBgMove : MonoBehaviour
                 Cursor.visible = false;
                 mouseX = Input.GetAxis("Mouse X") * 250;
                 mouseY = Input.GetAxis("Mouse Y") * 250;
-            }else
+            }
+            else
                 Cursor.visible = true;
         }
 
-        Vector3[] cor = new Vector3[4];
+        backgroundRect.GetWorldCorners(corners);
 
-        Background.GetComponent<RectTransform>().GetWorldCorners(cor);
-
-        Vector2 newPosX_LU = cor[1] += new Vector3(mouseX, mouseY) * Time.fixedDeltaTime;
-        Vector2 newPosX_RB = cor[3] += new Vector3(mouseX, mouseY) * Time.fixedDeltaTime;
+        Vector2 newPosX_LU = corners[1] + new Vector3(mouseX, mouseY) * Time.fixedDeltaTime;
+        Vector2 newPosX_RB = corners[3] + new Vector3(mouseX, mouseY) * Time.fixedDeltaTime;
 
         if (newPosX_LU.x < 0 && newPosX_RB.x > Screen.width)
         {
             Background.localPosition += new Vector3(mouseX, 0) * Time.fixedDeltaTime;
             QTE.localPosition = Background.localPosition;
-        }else{
-            if((newPosX_LU.x < 0 && mouseX > 0) || (newPosX_RB.x > Screen.width && mouseX < 0))
+        }
+        else
+        {
+            if ((newPosX_LU.x < 0 && mouseX > 0) || (newPosX_RB.x > Screen.width && mouseX < 0))
             {
                 Background.localPosition += new Vector3(mouseX, 0) * Time.fixedDeltaTime;
                 QTE.localPosition = Background.localPosition;
@@ -59,7 +67,9 @@ public class AudiobookBgMove : MonoBehaviour
         {
             Background.localPosition += new Vector3(0, mouseY) * Time.fixedDeltaTime;
             QTE.localPosition = Background.localPosition;
-        }else{
+        }
+        else
+        {
             if ((newPosX_RB.y > 0 && mouseY < 0) || (newPosX_LU.y < Screen.height && mouseY > 0))
             {
                 Background.localPosition += new Vector3(0, mouseY) * Time.fixedDeltaTime;

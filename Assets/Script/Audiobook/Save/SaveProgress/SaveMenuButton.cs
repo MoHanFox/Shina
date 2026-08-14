@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class SaveMenuButton : MonoBehaviour
@@ -14,13 +10,14 @@ public class SaveMenuButton : MonoBehaviour
     public GameObject parent;
     public int 档位;
 
-    // Start is called before the first frame update
+    //每次打开存档界面都会触发 OnEnable；缩略图走缓存，不再逐次 IO + 新建纹理
     void OnEnable()
     {
-        if (File.Exists(Application.persistentDataPath + "/Saves/Data" + 档位 + ".png"))
+        string path = Application.persistentDataPath + "/Saves/Data" + 档位 + ".png";
+        if (File.Exists(path))
         {
-            StartCoroutine(UnityWebRequestGetData(Application.persistentDataPath + "/Saves/Data" + 档位 + ".png", (txt) => { image.texture = txt; }));
-            text.text ="Num. " + 档位 + " - <size=24>" + new FileInfo(Application.persistentDataPath + "/Saves/Data" + 档位 + ".png").LastWriteTime + "</size>";
+            image.texture = SaveThumbnailCache.Get(档位);
+            text.text = "Num. " + 档位 + " - <size=24>" + new FileInfo(path).LastWriteTime + "</size>";
         }
     }
 
@@ -41,23 +38,11 @@ public class SaveMenuButton : MonoBehaviour
             };
 
             UiMessage.open();
-        }else{
+        }
+        else
+        {
             parent.SetActive(false);
             SaveManager.inti.SaveByData(SaveManager.data0, 档位);
         }
-    }
-
-    IEnumerator UnityWebRequestGetData(string _url, Action<Texture2D> OnTextureLoad)
-    {
-        using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture("file://" + _url))
-        {
-            yield return uwr.SendWebRequest();
-            if (uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result == UnityWebRequest.Result.ConnectionError)
-                Debug.Log(uwr.error);
-            else if
-            (uwr.isDone) OnTextureLoad?.Invoke(DownloadHandlerTexture.GetContent(uwr));
-        }
-
-        Resources.UnloadUnusedAssets();
     }
 }

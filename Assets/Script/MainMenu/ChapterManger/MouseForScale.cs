@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
+/// <summary>
+/// 章节选择界面缩放逻辑（桌面滚轮 / 移动端双指）。
+/// 优化：平滑改为与帧率无关的指数平滑；移除 UnityEditor 引用与无用 using（真机构建会编译失败）。
+/// </summary>
 public class MouseForScale : MonoBehaviour
 {
     [SerializeField] private RectTransform carrier;       // 被缩放的UI元素
@@ -73,11 +72,12 @@ public class MouseForScale : MonoBehaviour
         // 记录当前缩放比例
         float currentScale = carrier.localScale.x;
 
-        // 平滑过渡到目标缩放
+        // 平滑过渡到目标缩放（指数平滑，任意帧率手感一致）
+        float 平滑系数 = 1f - Mathf.Exp(-zoomSpeed * Time.deltaTime);
         Vector3 newScale = Vector3.Lerp(
             carrier.localScale,
             Vector3.one * targetScale,
-            zoomSpeed * Time.deltaTime
+            平滑系数
         );
         carrier.localScale = newScale;
 
@@ -142,11 +142,12 @@ public class MouseForScale : MonoBehaviour
         // 记录当前缩放比例
         float currentScale = carrier.localScale.x;
 
-        // 平滑过渡到目标缩放
+        // 平滑过渡到目标缩放（指数平滑，任意帧率手感一致）
+        float 平滑系数 = 1f - Mathf.Exp(-zoomSpeed * Time.deltaTime);
         Vector3 newScale = Vector3.Lerp(
             carrier.localScale,
             Vector3.one * targetScale,
-            zoomSpeed * Time.deltaTime
+            平滑系数
         );
         carrier.localScale = newScale;
 
@@ -208,5 +209,4 @@ public class MouseForScale : MonoBehaviour
         // 应用位置调整
         carrier.localPosition = new Vector3(offset.x, offset.y, 0);
     }
-
 }

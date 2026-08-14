@@ -33,14 +33,22 @@ public class SaveManager
         Save save = data0;
         String JsonString = JsonUtility.ToJson(save);
 
-        StreamWriter dataC = new(Application.persistentDataPath + "/Saves/Data" + ConfigManager.config.ChosenSave + ".json");
+        int 档位 = ConfigManager.config.ChosenSave;
+        string pngPath = Application.persistentDataPath + "/Saves/Data" + 档位 + ".png";
 
         if (!Application.isMobilePlatform)
-            ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/Saves/Data" + ConfigManager.config.ChosenSave + ".png");   //截图
+            ScreenCapture.CaptureScreenshot(pngPath);   //截图
         else
         {
-            File.WriteAllBytes(Application.persistentDataPath + "/Saves/Data" + ConfigManager.config.ChosenSave + ".png", ScreenCapture.CaptureScreenshotAsTexture().EncodeToPNG());
+            Texture2D shot = ScreenCapture.CaptureScreenshotAsTexture();
+            File.WriteAllBytes(pngPath, shot.EncodeToPNG());
+            UnityEngine.Object.Destroy(shot);   //修复：截图纹理不释放会泄漏内存
         }
+
+        SaveThumbnailCache.Invalidate(档位);   //缩略图缓存失效，下次打开存档界面重新解码新截图
+
+        StreamWriter dataC = new(Application.persistentDataPath + "/Saves/Data" + 档位 + ".json");
+
         dataC.Write(JsonString);
         dataC.Close();
     }
@@ -48,13 +56,20 @@ public class SaveManager
     {
         String JsonString = JsonUtility.ToJson(save);
 
-        StreamWriter sw = new(Application.persistentDataPath + "/Saves/Data" + number + ".json");
+        string pngPath = Application.persistentDataPath + "/Saves/Data" + number + ".png";
 
-        if(!Application.isMobilePlatform)
-            ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/Saves/Data" + number + ".png");   //截图
-        else{
-            File.WriteAllBytes(Application.persistentDataPath + "/Saves/Data" + number + ".png", ScreenCapture.CaptureScreenshotAsTexture().EncodeToPNG());
+        if (!Application.isMobilePlatform)
+            ScreenCapture.CaptureScreenshot(pngPath);   //截图
+        else
+        {
+            Texture2D shot = ScreenCapture.CaptureScreenshotAsTexture();
+            File.WriteAllBytes(pngPath, shot.EncodeToPNG());
+            UnityEngine.Object.Destroy(shot);   //修复：截图纹理不释放会泄漏内存
         }
+
+        SaveThumbnailCache.Invalidate(number);   //缩略图缓存失效，下次打开存档界面重新解码新截图
+
+        StreamWriter sw = new(Application.persistentDataPath + "/Saves/Data" + number + ".json");
 
         sw.Write(JsonString);
         sw.Close();

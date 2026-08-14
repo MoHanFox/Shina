@@ -1,20 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 章节图片查看窗口的拖动逻辑（桌面中键 / 移动端单指）。
+/// 优化：消除每帧 new Vector3[4] 与 GetComponent 分配；修正 GetWorldCorners 直接改角点数组的隐患；
+/// 移动增量不再乘以 Time.fixedDeltaTime（原写法在 Update 里用固定步长导致速度与帧率无关但值异常）。
+/// </summary>
 public class CheckImage : MonoBehaviour
 {
     public GameObject 查看窗口;
     public RawImage 映射;
 
+    private RectTransform 映射Rect;
+    private readonly Vector3[] corners = new Vector3[4];
+
+    void Awake()
+    {
+        映射Rect = 映射.GetComponent<RectTransform>();
+    }
+
     public void Click()
     {
-        映射.texture = gameObject.GetComponent<RawImage>().texture;
+        RawImage source = GetComponent<RawImage>();
+        映射.texture = source.texture;
 
-        Vector2 canvasSize = gameObject.GetComponentInParent<Canvas>().GetComponent<RectTransform>().sizeDelta;
+        Vector2 canvasSize = GetComponentInParent<Canvas>().GetComponent<RectTransform>().sizeDelta;
         float screenxyRate = canvasSize.x / canvasSize.y;
-        Vector2 bgSize = new(gameObject.GetComponent<RawImage>().texture.width, gameObject.GetComponent<RawImage>().texture.height);
+        Vector2 bgSize = new(source.texture.width, source.texture.height);
 
         //视频尺寸长宽比
         float texturexyRate = bgSize.x / bgSize.y;
@@ -23,61 +35,54 @@ public class CheckImage : MonoBehaviour
         {
             int newSizeY = Mathf.CeilToInt(canvasSize.y);
             int newSizeX = Mathf.CeilToInt((float)newSizeY / bgSize.y * bgSize.x);
-            映射.rectTransform.sizeDelta = new Vector2(newSizeX, newSizeY);
+            映射Rect.sizeDelta = new Vector2(newSizeX, newSizeY);
         }
         else
         {
             int newVideoSizeX = Mathf.CeilToInt(canvasSize.x);
             int newVideoSizeY = Mathf.CeilToInt((float)newVideoSizeX / bgSize.x * bgSize.y);
-            映射.rectTransform.sizeDelta = new Vector2(newVideoSizeX, newVideoSizeY);
+            映射Rect.sizeDelta = new Vector2(newVideoSizeX, newVideoSizeY);
         }
-        
+
         查看窗口.SetActive(true);
     }
-    // Update is called once per frame
+
     void Update()
     {
-        float mouseX = 0f;
-        float mouseY = 0f;
+        Vector2 增量 = Vector2.zero;
 
         if (Application.isMobilePlatform)
         {
             int touchCount = Input.touchCount;  // 获取触控点个数
 
             if (touchCount == 1)
-            {
-                mouseX = Input.GetTouch(0).deltaPosition.x * 15;
-                mouseY = Input.GetTouch(0).deltaPosition.y * 15;
-            }
+                增量 = Input.GetTouch(0).deltaPosition * 15f;
         }
         else
         {
             if (Input.GetMouseButton(2))
             {
                 Cursor.visible = false;
-                mouseX = Input.GetAxis("Mouse X") * 250;
-                mouseY = Input.GetAxis("Mouse Y") * 250;
+                增量 = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * 250f;
             }
             else
                 Cursor.visible = true;
         }
 
-        Vector3[] cor = new Vector3[4];
+        if (增量 == Vector2.zero)
+            return;
 
-        映射.GetComponent<RectTransform>().GetWorldCorners(cor);
+        //复用角点数组，不再每帧分配
+        映射Rect.GetWorldCorners(corners);
 
-        Vector2 newPosX_LU = cor[1] += new Vector3(mouseX, mouseY) * Time.fixedDeltaTime;
-        Vector2 newPosX_RB = cor[3] += new Vector3(mouseX, mouseY) * Time.fixedDeltaTime;
+        Vector2 newPosX_LU = corners[1] + (Vector3)增量;
+        Vector2 newPosX_RB = corners[3] + (Vector3)增量;
 
+        //仅在图片仍覆盖屏幕两侧时允许平移（防止拖出视野）
         if (newPosX_LU.x < 0 && newPosX_RB.x > Screen.width)
-        {
-            映射.rectTransform.localPosition += new Vector3(mouseX, 0) * Time.fixedDeltaTime;
-        }
+            映射Rect.localPosition += new Vector3(增量.x, 0, 0);
 
         if (newPosX_RB.y < 0 && newPosX_LU.y > Screen.height)
-        {
-            映射.rectTransform.localPosition += new Vector3(0, mouseY) * Time.fixedDeltaTime;
-        }
+            映射Rect.localPosition += new Vector3(0, 增量.y, 0);
     }
-
 }

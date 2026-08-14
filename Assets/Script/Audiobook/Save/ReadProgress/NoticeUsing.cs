@@ -7,6 +7,7 @@ public class NoticeUsing : MonoBehaviour
 {
 
     private TextMeshProUGUI myText;
+    private int lastChosen = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,11 @@ public class NoticeUsing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myText.text = "Num. " + ConfigManager.config.ChosenSave;
+        //只在档位变化时刷新，避免每帧字符串拼接 + TMP 网格重建
+        if (lastChosen != ConfigManager.config.ChosenSave)
+        {
+            lastChosen = ConfigManager.config.ChosenSave;
+            myText.text = "Num. " + lastChosen;
+        }
     }
 }
